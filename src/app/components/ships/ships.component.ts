@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ShipsService } from 'src/app/services/ships.service';
+
+// JSON
+import shipsList from 'src/assets/json/shipsList.json';
 
 @Component({
   selector: 'app-ships',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShipsComponent implements OnInit {
 
-  constructor() { }
+  public dataList: any = shipsList;
+
+  constructor( private shipsService: ShipsService) { }
 
   ngOnInit(): void {
+
+    console.log('Datos Json -->', this.dataList)
+
+    this.shipsService.getShips().subscribe((ships) => {
+      console.log('SHIPS -->', ships)
+    })
   }
 
 }

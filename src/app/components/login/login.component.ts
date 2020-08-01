@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   dataLoading: boolean = false
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
   loginUser() {
     if (this.loginForm.invalid) { return }
+    this.router.navigate(['/ships'])
   }
 }
 
