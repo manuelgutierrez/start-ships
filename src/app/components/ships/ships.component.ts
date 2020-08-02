@@ -13,15 +13,12 @@ export class ShipsComponent implements OnInit {
 
   public dataList: any = shipsList;
 
-  constructor( private shipsService: ShipsService) { }
+  constructor( private shipsService: ShipsService) {}
 
   ngOnInit(): void {
-
     console.log('Datos Json -->', this.dataList)
-
     this.shipsService.getShips().subscribe((ships) => {
       console.log('SHIPS -->', ships)
     })
   }
-
 }

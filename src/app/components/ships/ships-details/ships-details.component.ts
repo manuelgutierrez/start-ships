@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+declare var $: any;
+
 
 @Component({
   selector: 'ships-details',
@@ -8,11 +10,42 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ShipsDetailsComponent implements OnInit {
 
   @Input() dataList: any;
+  config: any;
+  shipId: string = '';
+  url: string = '';
+  // Modal
+  titleDetails: string = '';
+  modelDetails: string = '';
+  starship_class: string = '';
 
-  constructor() { }
-
+  constructor() { 
+  }
+  
   ngOnInit(): void {
     console.log('detailList -->', this.dataList.results)
+      this.config = {
+        itemsPerPage: 5,
+        currentPage: 1,
+        totalItems: this.dataList.results.length
+      };
+  }
+
+  getStarshipId(url) {
+    this.shipId = url.slice(0, -1)
+    const urlImage = `${this.shipId}.jpg`
+    return urlImage !== "";
+  }
+
+  pageChanged(event){
+    this.config.currentPage = event;
+  }
+
+  openDetails(details) {
+    console.log('detailsssss --->', details)
+    $("#exampleModal").modal('show');
+    this.titleDetails = details.name;
+    this.modelDetails = details.model;
+    this.starship_class = details.starship_class
   }
 
 }

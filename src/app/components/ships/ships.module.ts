@@ -5,13 +5,18 @@ import { HttpClientModule } from '@angular/common/http';
 // Components
 import { ShipsComponent } from './ships.component';
 import { ShipsDetailsComponent } from './ships-details/ships-details.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
-  declarations: [ShipsComponent, ShipsDetailsComponent],
+  declarations: [
+    ShipsComponent,
+    ShipsDetailsComponent
+  ],
   imports: [
     CommonModule,
     ShipsComponentsRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ]
 })
 export class ShipsModule { }
