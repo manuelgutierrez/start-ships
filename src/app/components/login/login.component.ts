@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
+// JSON
+import usersList from 'src/assets/json/users.json';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,8 +12,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup
-  dataLoading: boolean = false
+  loginForm: FormGroup;
+  dataLoading: boolean = false;
+  users: any = usersList;
+  unregistered: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -25,7 +30,15 @@ export class LoginComponent implements OnInit {
   }
   loginUser() {
     if (this.loginForm.invalid) { return }
-    this.router.navigate(['/ships'])
+    // TODO : Falta integrar el servicio para autentificar al usuario
+    // JSON simulando usuarios
+    var userLogin = this.loginForm.value.username;
+    var filterJson = this.users.filter(function (user) { return user.first_name === userLogin  });
+    if (filterJson.length > 0) {
+      this.router.navigate(['/ships'])
+    } else {
+      this.unregistered = true;
+    }
   }
 }
 

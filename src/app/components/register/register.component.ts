@@ -8,8 +8,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm: FormGroup
-  dataLoading: boolean = false
+  registerForm: FormGroup;
+  dataLoading: boolean = false;
 
   constructor(
     private fb: FormBuilder
