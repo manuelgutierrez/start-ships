@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShipsService } from 'src/app/services/ships.service';
+// declare var $: any;
 
 // JSON
 import shipsList from 'src/assets/json/shipsList.json';
