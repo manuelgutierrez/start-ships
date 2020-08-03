@@ -5,10 +5,10 @@
             <label for="username">First name</label>
             <input 
                 type="text"
-                name="firstName"
+                name="first_name"
                 class="form-control"
-                formControlName="firstName"/>
-                <div class="input-group-append" *ngIf="registerForm.get('firstName').invalid">
+                formControlName="first_name"/>
+                <div class="input-group-append" *ngIf="registerForm.get('first_name').invalid">
                     <span class="colorInvalid">
                         <i>FirstName is required</i>
                     </span>
@@ -18,10 +18,10 @@
             <label for="username">Last name</label>
             <input
                 type="text"
-                name="lastName"
+                name="last_name"
                 class="form-control"
-                formControlName="lastName"/>
-                <div class="input-group-append" *ngIf="registerForm.get('lastName').invalid">
+                formControlName="last_name"/>
+                <div class="input-group-append" *ngIf="registerForm.get('last_name').invalid">
                     <span class="colorInvalid">
                         <i>LastName is required</i>
                     </span>
@@ -43,13 +43,13 @@
         <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
             <label for="password">Password</label>
             <input
-                type="password"
-                name="password"
+                type="email"
+                name="email"
                 class="form-control"
-                formControlName="password" />
-                <div class="input-group-append" *ngIf="registerForm.get('username').invalid">
+                formControlName="email" />
+                <div class="input-group-append" *ngIf="registerForm.get('email').invalid">
                     <span class="colorInvalid">
-                        <i>Password is required</i>
+                        <i>Email is required</i>
                     </span>
                 </div>
         </div>
