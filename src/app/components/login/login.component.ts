@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   dataLoading: boolean = false;
   users: any = usersList;
   unregistered: boolean = false;
+  invalid: boolean = false;
 
   constructor(
     private fb: FormBuilder,
