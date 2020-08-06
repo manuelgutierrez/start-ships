@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators'
 })
 export class ShipsService {
 
-  url: string = 'https://swapi.co/api/starships/'
+  url: string = 'https://swapi.dev/api/starships/'
   headerDict = {
     'Authorization': 'none',
     'Access-Control-Allow-Origin': '*'
@@ -21,10 +21,7 @@ export class ShipsService {
 
   getShips(): Observable<any>{
     return this.http.get(this.url, this.requestOptions).pipe( 
-      map( data => {
-        console.log('data service -->', data)
-          return data
-      })
+      map( data => { return data })
       );
   }
 }

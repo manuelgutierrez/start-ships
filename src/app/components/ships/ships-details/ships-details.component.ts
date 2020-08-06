@@ -22,11 +22,10 @@ export class ShipsDetailsComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    console.log('detailList -->', this.dataList.results)
       this.config = {
         itemsPerPage: 5,
         currentPage: 1,
-        totalItems: this.dataList.results.length
+        totalItems: this.dataList.length
       };
   }
 
@@ -41,7 +40,6 @@ export class ShipsDetailsComponent implements OnInit {
   }
 
   openDetails(details) {
-    console.log('detailsssss --->', details)
     $("#exampleModal").modal('show');
     this.titleDetails = details.name;
     this.modelDetails = details.model;
